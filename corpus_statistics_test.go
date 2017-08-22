@@ -1,9 +1,9 @@
 package main
 
 import (
+	"math"
 	"reflect"
 	"testing"
-	"math"
 )
 
 func TestCorpusStatistics_Init(t *testing.T) {
@@ -78,18 +78,18 @@ func TestCorpusStatistics_TfIdf(t *testing.T) {
 	tfidf := cs.TfIdf()
 
 	expectedTfIdf := map[WordKey]float64{
-		WordKey{"this", "test1.txt"}:    1.0 / 5.0 * math.Log10(2.0 / 2.0),
-		WordKey{"is", "test1.txt"}:      1.0 / 5.0 * math.Log10(2.0 / 2.0),
-		WordKey{"a", "test1.txt"}:       2.0 / 5.0 * math.Log10(2.0 / 1.0),
+		WordKey{"this", "test1.txt"}:    1.0 / 5.0 * math.Log10(2.0/2.0),
+		WordKey{"is", "test1.txt"}:      1.0 / 5.0 * math.Log10(2.0/2.0),
+		WordKey{"a", "test1.txt"}:       2.0 / 5.0 * math.Log10(2.0/1.0),
 		WordKey{"another", "test1.txt"}: 0.0,
-		WordKey{"sample", "test1.txt"}:  1.0 / 5.0 * math.Log10(2.0 / 1.0),
+		WordKey{"sample", "test1.txt"}:  1.0 / 5.0 * math.Log10(2.0/1.0),
 		WordKey{"example", "test1.txt"}: 0.0,
-		WordKey{"this", "test2.txt"}:    1.0 / 7.0 * math.Log10(2.0 / 2.0),
-		WordKey{"is", "test2.txt"}:      1.0 / 7.0 * math.Log10(2.0 / 2.0),
+		WordKey{"this", "test2.txt"}:    1.0 / 7.0 * math.Log10(2.0/2.0),
+		WordKey{"is", "test2.txt"}:      1.0 / 7.0 * math.Log10(2.0/2.0),
 		WordKey{"a", "test2.txt"}:       0.0,
-		WordKey{"another", "test2.txt"}: 2.0 / 7.0 * math.Log10(2.0 / 1.0),
+		WordKey{"another", "test2.txt"}: 2.0 / 7.0 * math.Log10(2.0/1.0),
 		WordKey{"sample", "test2.txt"}:  0.0,
-		WordKey{"example", "test2.txt"}: 3.0 / 7.0 * math.Log10(2.0 / 1.0),
+		WordKey{"example", "test2.txt"}: 3.0 / 7.0 * math.Log10(2.0/1.0),
 	}
 	if !reflect.DeepEqual(tfidf, expectedTfIdf) {
 		t.Errorf("%v != %v", expectedTfIdf, tfidf)
