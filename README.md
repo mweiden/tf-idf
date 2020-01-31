@@ -1,4 +1,5 @@
 # tf-idf
+![Go](https://github.com/mweiden/tf-idf/workflows/Go/badge.svg)
 
 `tf-idf` calculates the [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) score of each word in a document given a corpus of documents.
 
